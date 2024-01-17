@@ -5,21 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cad1Etudiant extends Model
+class Cad2Student extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'nom',
-        'adresse',
+        'adress',
         'phone',
-        'email',
-        'date_naissance',
-        'ville_id'
+        'd_o_b',
+        'city_id',
+        'user_id'
     ];
 
-    public function etudiantHasVille() {
-        return $this->hasOne('App\Models\Cad1Ville', 'id', 'ville_id');
+    public function studentHasCity() {
+        return $this->hasOne('App\Models\Cad1City', 'id', 'city_id');
+    }
+
+    public function studentHasUser() {
+        return $this->hasOne('App\Models\User', 'id', 'user_id');
     }
 }
 
