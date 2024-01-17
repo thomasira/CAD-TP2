@@ -10,7 +10,7 @@ class Cad2Student extends Model
     use HasFactory;
 
     protected $fillable = [
-        'adress',
+        'address',
         'phone',
         'd_o_b',
         'city_id',
@@ -18,11 +18,6 @@ class Cad2Student extends Model
     ];
 
     public function studentHasCity() {
-        return $this->hasOne('App\Models\Cad1City', 'id', 'city_id');
-    }
-
-    public function studentHasUser() {
-        return $this->hasOne('App\Models\User', 'id', 'user_id');
+        return $this->hasOne('App\Models\Cad2City', 'id', 'city_id');
     }
 }
-

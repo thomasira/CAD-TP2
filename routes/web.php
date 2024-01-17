@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Cad1EtudiantController;
+use App\Http\Controllers\Cad2StudentController;
 use App\Http\Controllers\Cad1VilleController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () { return view('welcome'); })->name('accueil');
 Route::get('info', function () { return view('info'); })->name('info');
 
-Route::get('etudiant-index', [Cad1EtudiantController::class, 'index'])->name('etudiant.index');
+Route::get('etudiant-index', [Cad2StudentController::class, 'index'])->name('etudiant.index');
 Route::get('etudiant-create', [Cad1EtudiantController::class, 'create'])->name('etudiant.create');
 Route::post('etudiant-create', [Cad1EtudiantController::class, 'store']);
 Route::get('etudiant/{cad1Etudiant}', [Cad1EtudiantController::class, 'show'])->name('etudiant.show');
