@@ -16,6 +16,7 @@ class Cad2Student extends Model
         'city_id',
         'user_id'
     ];
+    public $timestamps = false;
 
     public function studentHasCity() {
         return $this->hasOne('App\Models\Cad2City', 'id', 'city_id');

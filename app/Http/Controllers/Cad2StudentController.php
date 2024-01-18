@@ -13,7 +13,7 @@ class Cad2StudentController extends Controller
     public function index()
     {
         $students = Cad2Student::all();
-        return $students->first()->studentHasCity();
+        return $students->first()->studentHasCity->city;
     }
 
     /**
