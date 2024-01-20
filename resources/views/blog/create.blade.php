@@ -2,30 +2,59 @@
 @section('title', 'Creer')
 @section('content')
 @include('layouts.nav')
-<main class="formulaire">
+<main>
     <section>
-        <h2>Formulaire d'ajout d'un étudiant</h2>
-        <p>Ce formulaire permet l'ajout d'un étudiant dans le système informatique du Forum. Ceci entrainera l'enregistrement des données requises à tout jamais. Veuillez obtenir toutes les autorisations nécessaires avant de procéder.</p>
+        
     </section>
     <section>
-        <header>
-            <h3>Formulaire c45a</h3>
-            <div>
-                <p></p>
-                <p>{{ $date }}</p>
-            </div>
-        </header>
         <form method="post">
+            <header>
+                <h3>Formulaire F67A</h3>
+                <div>
+                    <p></p>
+                    <p>{{ $date }}</p>
+                </div>
+            </header>
             @csrf
             <div>
-                <label>Nom
-                    <input type="text" name="nom" value="{{ old('nom') }}">
-                    @if ($errors->has('nom'))
-                        <span class="error">{{ $errors->first('nom') }}</span>
+                <label>Titre
+                    <input type="text" name="title" value="{{ old('nom') }}">
+                    @if ($errors->has('title'))
+                        <span class="error">{{ $errors->first('title') }}</span>
                     @endif
                 </label>
+                <label>Article
+                    <textarea name="article" cols="30" rows="20"></textarea>
+                    @if ($errors->has('article'))
+                        <span class="error">{{ $errors->first('article') }}</span>
+                    @endif
+                </label>
+                <button class="btn">Publier</button>
             </div>
-            <button class="btn">Sauvegarder</button>
+            <section>
+                <header>
+                    <h3>Form F67AEN</h3>
+                    <div>
+                        <p></p>
+                        <p>{{ $date }}</p>
+                    </div>
+                </header>
+                <div>
+                    <label>Title
+                        <input type="text" name="title_en" value="{{ old('nom') }}">
+                        @if ($errors->has('title_en'))
+                            <span class="error">{{ $errors->first('title_en') }}</span>
+                        @endif
+                    </label>
+                    <label>Article
+                        <textarea name="article_en" cols="30" rows="20"></textarea>
+                        @if ($errors->has('article_en'))
+                            <span class="error">{{ $errors->first('article_en') }}</span>
+                        @endif
+                    </label>
+                    <button class="btn">Save</button>
+                </div>
+            </section>
         </form>
     </section>
 </main>

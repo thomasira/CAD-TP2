@@ -23,6 +23,8 @@ Route::get('info', function () { return view('info'); })->name('info');
 Route::get('students', [Cad2StudentController::class, 'index'])->name('student.index');
 Route::get('blog', [Cad2BlogPostController::class, 'index'])->name('blog.index')->middleware('auth');
 Route::get('blog-create', [Cad2BlogPostController::class, 'create'])->name('blog.create')->middleware('auth');
+Route::post('blog-create', [Cad2BlogPostController::class, 'store'])->name('blog.store')->middleware('auth');
+Route::get('blog/{cad2BlogPost}', [Cad2BlogPostController::class, 'show'])->name('blog.show')->middleware('auth');
 Route::get('lang/{locale}', [LocalizationController::class, 'index'])->name('lang');
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::get('logout', [CustomAuthController::class, 'logout'])->name('logout');
@@ -35,3 +37,6 @@ Route::get('etudiant/{cad1Etudiant}', [Cad1EtudiantController::class, 'show'])->
 Route::get('etudiant-edit/{cad1Etudiant}', [Cad1EtudiantController::class, 'edit'])->name('etudiant.edit');
 Route::put('etudiant-edit/{cad1Etudiant}', [Cad1EtudiantController::class, 'update']);
 Route::delete('etudiant/{cad1Etudiant}', [Cad1EtudiantController::class, 'destroy'])->name('etudiant.delete'); */
+
+
+

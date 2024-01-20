@@ -2,37 +2,32 @@
 @section('title', 'Creer')
 @section('content')
 @include('layouts.nav')
-<section class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <form method="post" action="{{ route('authent') }}">
-                @csrf
-                    <div class="card-header text-center">
-                        <h2>Log in</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="control-group d-grid gap-3">
-                            <label class="col-12">Email
-                                <input type="email" name="email" class="form-control" value="{{ old('email') }}">
-                                @if($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                @endif
-                            </label>
-                            <label class="col-12">Password
-                                <input type="password" name="password" class="form-control">
-                                @if($errors->has('password'))
-                                    <span class="text-danger">{{ $errors->first('password') }}</span>
-                                @endif
-                            </label>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-success">Connexion</button>
-                    </div>
-                </form>
+
+<main>
+    <section class="formulaire">
+        <form action="{{ route('authent') }}" method="post">
+        @csrf
+            <header>
+                <h3>Connexion</h3>
+            </header>
+            <div>
+                <label>Email
+                    <input type="text" name="email" value="{{ old('email') }}">
+                    @if ($errors->has('email'))
+                        <span class="error">{{ $errors->first('email') }}</span>
+                    @endif
+                </label>
+                <label>Password
+                    <input type="password" name="password">
+                    @if($errors->has('password'))
+                        <span class="error">{{ $errors->first('password') }}</span>
+                    @endif
+                </label>
+                <button class="btn">Connexion</button>
+                <p>ou</p>
+                <a href="{{ route('auth.create')}}" class="btn">S'inscrire</a>
             </div>
-        </div>
-    </div>
-</section>
+        </form>
+    </section>
+</main>
 @endsection

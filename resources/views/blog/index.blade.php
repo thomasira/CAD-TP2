@@ -12,7 +12,7 @@
         @foreach ($blog->resolve() as $article)
             <li>
                 <h2>{{ $article['title'] }}</h2>
-                <a href="">lire l'article</a>
+                <a href="{{ route('blog.show', $article['id'])}}">lire l'article</a>
             </li>
         @endforeach
         </ul>

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cad2BlogPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Cad2BlogpostResource;
+use App\Models\Cad2Student;
+use App\Models\Cad2BlogPost;
+
 class Cad2BlogPostController extends Controller
 {
 
@@ -31,7 +34,20 @@ class Cad2BlogPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $student_id = Cad2Student::get()->where('user_id', Auth::User()->id)->first()->id;
+        $request->validate([
+            'title' => 'min:3 | max:50 | required',
+            'title_en' => 'max:50',
+            'article' => 'min:10 | required',
+        ]);
+        $title = '{"fr":"'.$request->title.'", "en":"'.$request->title_en.'"}';
+        $article = '{"fr":"'.$request->article.'", "en":"'.$request->article_en.'"}';
+        $newBlog = Cad2BlogPost::create([
+            'title' => $title,
+            'article' => $article,
+            'student_id' => $student_id,
+        ]);
+        return redirect(route('blog.show', $newBlog));
     }
 
     /**
@@ -39,7 +55,9 @@ class Cad2BlogPostController extends Controller
      */
     public function show(Cad2BlogPost $cad2BlogPost)
     {
-        //
+        $blog = new Cad2BlogpostResource($cad2BlogPost);
+        $blog = $blog->resolve();
+        return view('blog.show', compact('blog'));
     }
 
     /**

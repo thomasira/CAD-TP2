@@ -10,14 +10,14 @@
         display: flex;
         flex-flow: row;
         gap: var(--gaps);
+        align-items: center;
 
-        div{
+        div:not(:last-of-type){
             padding: var(--gaps);
             
             a{
                 text-transform: uppercase;
                 transition: color .4s;
-                
             }
             span{
                 display: block;
@@ -34,6 +34,11 @@
                 span{
                     width: 100%;
                 }
+            }
+            >div{
+                display: flex;
+                align-items: center;
+                padding: 0;
             }
         }
     }

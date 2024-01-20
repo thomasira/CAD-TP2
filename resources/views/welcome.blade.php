@@ -18,7 +18,7 @@
         </section>
         <section>
             <div>
-                <a href="{{ route('blog.index')}}" class="btn large">Entrez</a>
+                <a href="{{ route('blog.index')}}" class="btn large">@lang('lang.btn-enter')</a>
             </div>
         </section>
     </main>

@@ -1,3 +1,4 @@
+@php $locale = session()->get('locale') @endphp
 <!DOCTYPE html>
 <html lang="fr">
 <head>

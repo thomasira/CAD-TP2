@@ -21,7 +21,8 @@ class Cad2BlogpostResource extends JsonResource
             'id' => $this->id,
             'title' => isset(json_decode($this->title)->$locale) && json_decode($this->title)->$locale != "" ? json_decode($this->title)->$locale : json_decode($this->title)->$default,
             'article' => isset(json_decode($this->article)->$locale) && json_decode($this->article)->$locale != ""? json_decode($this->article)->$locale : json_decode($this->article)->$default,
-            'author' => $this->student->name
+            'author' => $this->student->name,
+            'date' => date_format($this->updated_at, 'Y-m-d')
         ];
     }
 }

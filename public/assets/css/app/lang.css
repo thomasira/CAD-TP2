@@ -1,0 +1,33 @@
+.lang {
+    padding:var(--gapxxs);
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: var(--colorLightL);
+
+    p, a{
+        color: var(--colorMaisD);
+    }
+    div{
+        display: none;
+    }
+    &:hover{
+        & div{
+            display: block;
+            background-color: var(--colorLightL);
+            position: absolute;
+            top: 100%;
+            right: 0;
+            padding: var(--gapxxs);
+            
+            a {
+                padding: var(--gapTHxxs);
+    
+                &:hover{
+                    color: var(--colorDark);
+                }
+            }
+        }
+    }
+}

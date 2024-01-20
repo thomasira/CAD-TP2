@@ -28,6 +28,6 @@ class Cad2Student extends Model
     }
 
     public function user() {
-        return $this->hasOne(Cad2Student::class);
+        return $this->hasOne(Cad2User::class);
     }
 }
