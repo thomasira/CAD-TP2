@@ -31,10 +31,13 @@ Route::get('logout', [CustomAuthController::class, 'logout'])->name('logout');
 Route::get('registration', [CustomAuthController::class, 'create'])->name('auth.create');
 Route::post('registration', [CustomAuthController::class, 'store'])->name('auth.create');
 Route::post('authent', [CustomAuthController::class, 'authentification'])->name('authent');
-/* Route::get('etudiant-create', [Cad1EtudiantController::class, 'create'])->name('etudiant.create');
+
+
+Route::get('student-create', [Cad2StudentController::class, 'create'])->name('student.create');
+Route::get('student/{cad2Student}', [Cad2StudentController::class, 'show'])->name('student.show');
+Route::get('student-edit/{cad2Student}', [Cad2StudentController::class, 'edit'])->name('student.edit');
+/* 
 Route::post('etudiant-create', [Cad1EtudiantController::class, 'store']);
-Route::get('etudiant/{cad1Etudiant}', [Cad1EtudiantController::class, 'show'])->name('etudiant.show');
-Route::get('etudiant-edit/{cad1Etudiant}', [Cad1EtudiantController::class, 'edit'])->name('etudiant.edit');
 Route::put('etudiant-edit/{cad1Etudiant}', [Cad1EtudiantController::class, 'update']);
 Route::delete('etudiant/{cad1Etudiant}', [Cad1EtudiantController::class, 'destroy'])->name('etudiant.delete'); */
 

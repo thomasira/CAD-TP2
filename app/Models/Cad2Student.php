@@ -9,6 +9,8 @@ class Cad2Student extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'user_id';
+
     protected $fillable = [
         'name',
         'address',
@@ -24,7 +26,7 @@ class Cad2Student extends Model
     }
 
     public function blogPost() {
-        return $this->hasMany(Cad2BlogPost::class);
+        return $this->hasMany(Cad2BlogPost::class, 'student_id', 'user_id');
     }
 
     public function user() {

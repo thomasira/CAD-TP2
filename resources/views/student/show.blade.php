@@ -1,15 +1,15 @@
 @extends('layouts.layout')
-@section('title', 'Etudiant')
+@section('title', 'Student')
 @section('content')
 @include('layouts.nav')
 <main class="etudiant-file">
     <section>
         <header>
-            <h1>{{ $etudiant->nom }}</h1>
-            <p>ID{{ $etudiant->id }} | Étudiant</p>
+            <h1>{{ $cad2Student->name }}</h1>
+            <p>ID{{ $cad2Student->user_id }} | Étudiant</p>
         </header>
         <div>
-            <a href="{{ route('etudiant.edit', $etudiant->id) }}" class="btn">Modifier</a>
+            <a href="{{ route('student.edit', $cad2Student->user_id) }}" class="btn">Modifier</a>
             <form method="post">
                 @method('delete')
                 @csrf
@@ -21,19 +21,18 @@
         <table>
             <tr>
                 <th>Email</th>
-                <td>{{ $etudiant->email }}</td>
+                <td>{{ $cad2Student->email }}</td>
             </tr>
             <tr>
                 <th>Téléphone</th>
-                <td>{{ $etudiant->phone }}</td>
+                <td>{{ $cad2Student->phone }}</td>
             </tr>
             <tr>
                 <th>Adresse</th>
-                <td>{{ $etudiant->adresse }}</td>
+                <td>{{ $cad2Student->adresse }}</td>
             </tr>
             <tr>
                 <th>Ville</th>
-                <td>{{ $etudiant->etudiantHasVille->ville }}</td>
             </tr>
         </table>
     </section>

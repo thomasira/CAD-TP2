@@ -34,18 +34,23 @@ class Cad2BlogPostController extends Controller
      */
     public function store(Request $request)
     {
-        $student_id = Cad2Student::get()->where('user_id', Auth::User()->id)->first()->id;
         $request->validate([
             'title' => 'min:3 | max:50 | required',
             'title_en' => 'max:50',
             'article' => 'min:10 | required',
         ]);
-        $title = '{"fr":"'.$request->title.'", "en":"'.$request->title_en.'"}';
-        $article = '{"fr":"'.$request->article.'", "en":"'.$request->article_en.'"}';
+        $title = [
+            "fr"=>$request->title,
+            "en"=>$request->title_en
+        ];
+        $article = [
+            "fr"=>$request->article,
+            "en"=>$request->article_en
+        ];
         $newBlog = Cad2BlogPost::create([
-            'title' => $title,
-            'article' => $article,
-            'student_id' => $student_id,
+            'title' => json_encode($title),
+            'article' => json_encode($article),
+            'student_id' => Auth::user()->id,
         ]);
         return redirect(route('blog.show', $newBlog));
     }

@@ -6,7 +6,7 @@
     <section>
         <header>
             <h1>Les étudiants</h1>
-            <a href="{{ route('etudiant.create') }}" class="btn">Ajoutez un étudiant</a>
+            <a href="{{ route('student.create') }}" class="btn">Ajoutez un étudiant</a>
         </header>
         <table>
             <thead>
@@ -20,19 +20,15 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($etudiants as $etudiant)
+            @foreach($students as $student)
                 <tr>
-                    <th>{{ $etudiant->id }}</th>
-                    <td><a href="{{ route('etudiant.show', $etudiant->id) }}">{{ $etudiant->nom }}</a></td>
-                    <td>{{ $etudiant->email }}</td>
-                    <td>{{ $etudiant->phone }}</td>
-                    <td>{{ $etudiant->adresse }}</td>
-                    <td>{{ $etudiant->etudiantHasVille->ville }}</td>
+                    <th>{{ $student->id }}</th>
+                    <td><a href="{{ route('student.show', $student->user_id) }}">{{ $student->name }}</a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
-        {{ $etudiants }}
+        {{ $students }}
     </section>
 </main>
 @include('layouts.footer')

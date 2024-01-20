@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Cad2Student;
 use App\Models\Cad2City;
+use App\Models\Cad2Blogpost;
 use Illuminate\Http\Request;
-use App\Http\Resources\StudentResource;
+use App\Http\Resources\Cad2BlogpostResource;
 class Cad2StudentController extends Controller
 {
     /**
@@ -13,7 +14,8 @@ class Cad2StudentController extends Controller
      */
     public function index()
     {
-        return Cad2Student::with('city')->get();
+        $students = Cad2Student::with('city')->paginate(10);
+        return view('student.index', compact('students'));
     }
 
     /**
@@ -37,7 +39,8 @@ class Cad2StudentController extends Controller
      */
     public function show(Cad2Student $cad2Student)
     {
-        //
+        $blogPost = Cad2BlogpostResource::collection($cad2Student->blogPost);
+        return view('student.show',compact('cad2Student', 'blogPost'));
     }
 
     /**
