@@ -11,4 +11,8 @@ class Cad2City extends Model
     protected $fillable = [
         'city'
     ];
+
+    public function student() {
+        return $this->hasMany(Cad2Student::class);
+    }
 }

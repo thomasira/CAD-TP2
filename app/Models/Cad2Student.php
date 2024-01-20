@@ -10,15 +10,24 @@ class Cad2Student extends Model
     use HasFactory;
 
     protected $fillable = [
+        'name',
         'address',
         'phone',
         'd_o_b',
-        'city_id',
-        'user_id'
+        'user_id',
+        'city_id'
     ];
     public $timestamps = false;
 
-    public function studentHasCity() {
-        return $this->hasOne('App\Models\Cad2City', 'id', 'city_id');
+    public function city() {
+        return $this->belongsTo(Cad2City::class);
+    }
+
+    public function blogPost() {
+        return $this->hasMany(Cad2BlogPost::class);
+    }
+
+    public function user() {
+        return $this->hasOne(Cad2Student::class);
     }
 }

@@ -7,7 +7,7 @@
         </div>
         <div>
             <p>Thomas Aucoin-Lo</p>
-            <p>e2395387 | 2023-01-17</p>
+            <p>e2395387 | 2024-01-17</p>
         </div>
     </div>
 </footer>

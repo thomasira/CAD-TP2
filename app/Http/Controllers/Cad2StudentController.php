@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cad2Student;
+use App\Models\Cad2City;
 use Illuminate\Http\Request;
-
+use App\Http\Resources\StudentResource;
 class Cad2StudentController extends Controller
 {
     /**
@@ -12,8 +13,7 @@ class Cad2StudentController extends Controller
      */
     public function index()
     {
-        $students = Cad2Student::all();
-        return $students->first()->studentHasCity->city;
+        return Cad2Student::with('city')->get();
     }
 
     /**
