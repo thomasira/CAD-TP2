@@ -28,7 +28,9 @@ class Cad2Student extends Model
     public function blogPost() {
         return $this->hasMany(Cad2BlogPost::class, 'student_id', 'user_id');
     }
-
+    public function document() {
+        return $this->hasMany(Cad2Document::class, 'student_id', 'user_id');
+    }
     public function user() {
         return $this->hasOne(Cad2User::class);
     }

@@ -11,7 +11,7 @@
         flex-flow: row;
         gap: var(--gaps);
         align-items: center;
-
+        z-index: 1;
         div:not(:last-of-type){
             padding: var(--gaps);
             
@@ -27,7 +27,6 @@
                 transition: width .4s;
             }
             &:hover{
-
                 a{
                     color: var(--colorMaisD);
                 }

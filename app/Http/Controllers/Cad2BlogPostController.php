@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Cad2BlogpostResource;
 use App\Models\Cad2Student;
+use App\Models\Cad2Document;
 use App\Models\Cad2BlogPost;
 
 class Cad2BlogPostController extends Controller
@@ -17,7 +18,8 @@ class Cad2BlogPostController extends Controller
     public function index()
     {
         $blog = Cad2BlogpostResource::collection(Cad2BlogPost::paginate(10));
-        return view('blog.index', compact('blog'));
+        $documents = Cad2Document::all();
+        return view('blog.index', compact('blog','documents'));
     }
 
     /**

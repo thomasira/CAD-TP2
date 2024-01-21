@@ -8,6 +8,7 @@
     </section>
     <section>
         <form method="post">
+            @csrf
             <header>
                 <h3>Formulaire F67A</h3>
                 <div>
@@ -15,7 +16,6 @@
                     <p>{{ $date }}</p>
                 </div>
             </header>
-            @csrf
             <div>
                 <label>Titre
                     <input type="text" name="title" value="{{ old('nom') }}">

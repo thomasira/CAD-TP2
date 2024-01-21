@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cad2_blogposts', function (Blueprint $table) {
+        Schema::create('cad2_documents', function (Blueprint $table) {
             $table->id();
-            $table->text('title');
-            $table->text('article');
+            $table->string('name', 45);
             $table->unsignedBigInteger('student_id');
-            $table->foreign('student_id')->references('user_id')->on('cad2_students');
             $table->timestamps();
+            $table->foreign('student_id')->references('user_id')->on('cad2_students');
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cad2_blogposts');
+        Schema::dropIfExists('cad2_documents');
     }
 };

@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Cad2StudentController;
 use App\Http\Controllers\Cad2BlogPostController;
+use App\Http\Controllers\Cad2DocumentController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\CustomAuthController;
+use App\Models\Cad2Document;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,10 +34,12 @@ Route::get('registration', [CustomAuthController::class, 'create'])->name('auth.
 Route::post('registration', [CustomAuthController::class, 'store'])->name('auth.create');
 Route::post('authent', [CustomAuthController::class, 'authentification'])->name('authent');
 
-
 Route::get('student-create', [Cad2StudentController::class, 'create'])->name('student.create');
 Route::get('student/{cad2Student}', [Cad2StudentController::class, 'show'])->name('student.show');
 Route::get('student-edit/{cad2Student}', [Cad2StudentController::class, 'edit'])->name('student.edit');
+Route::post('upload', [Cad2DocumentController::class, 'upload'])->name('document.upload')->middleware('auth');
+Route::get('download/{cad2Document}', [Cad2DocumentController::class, 'download'])->name('document.download')->middleware('auth');
+
 /* 
 Route::post('etudiant-create', [Cad1EtudiantController::class, 'store']);
 Route::put('etudiant-edit/{cad1Etudiant}', [Cad1EtudiantController::class, 'update']);
