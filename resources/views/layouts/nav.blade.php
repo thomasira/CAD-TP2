@@ -14,16 +14,16 @@ else $profile = 'guest';
         </div>
         @else
         <div>
-            <a href="{{ route('blog.index') }}">Blog</a>
+            <a href="{{ route('blog.index') }}">@lang('lang.nav-blog')</a>
             <span></span>
         </div>
         <div>
-            <a href="{{ route('logout') }}">Logout</a>
+            <a href="{{ route('logout') }}">@lang('lang.nav-logout')</a>
             <span></span>
         </div>
         @endguest
         <div>
-            <a href="{{ route('info') }}">Info</a>
+            <a href="{{ route('info') }}">@lang('lang.nav-info')</a>
             <span></span>
         </div>
         <aside class="profile"  tabindex="0">
@@ -36,7 +36,7 @@ else $profile = 'guest';
             @guest
                 <a href="{{ route('login') }}">@lang('lang.nav-login')</a>
             @else
-                <a href="{{ route('profile', $user->id) }}" title="profile">profile</a>
+                <a href="{{ route('profile', $user->id) }}" title="profile">@lang('lang.nav-profile')</a>
             @endguest
                 <div>
                     <p>langues</p>

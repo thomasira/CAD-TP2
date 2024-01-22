@@ -5,7 +5,7 @@
     <section>
         <header>
             <h1>{{ $blog['title'] }}</h1>  
-            <p>written by {{ $blog['author'] }}</p>
+            <p>@lang('lang.blog-show-written') {{ $blog['author'] }}</p>
         </header>
         <article>
             <p>{{ $blog['article'] }}</p>

@@ -3,12 +3,12 @@
 @section('content')
 <main>
     <header class="banner">
-        <h1>Les articles</h1>
+        <h1>@lang('lang.blog-index-banner')</h1>
     </header>
     <div class="blog-page">
         <section>
             <header>
-                <a href="{{ route('blog.create')}}" class="btn">écrire un article</a>
+                <a href="{{ route('blog.create')}}" class="btn">@lang('lang.btn-write-blog')</a>
             </header>
             <ul>
             @foreach ($blog->resolve() as $article)
@@ -19,7 +19,7 @@
                         <p>{{ $article['date'] }}</p>
                     </section>
                     <div>
-                        <a href="{{ route('blog.show', $article['id']) }}" class="btn">lire l'article</a>
+                        <a href="{{ route('blog.show', $article['id']) }}" class="btn">@lang('lang.bnt-rad-blog')</a>
                     </div>
                 </li>
             @endforeach
