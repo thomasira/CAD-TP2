@@ -1,7 +1,6 @@
 @extends('layouts.layout')
 @section('title', 'Accueil')
 @section('content')
-@include('layouts.nav')
 <div class="home" data-js-forum>
     <div data-js-type="1">
         <!-- string is defined and animated in JS -->

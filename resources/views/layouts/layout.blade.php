@@ -11,6 +11,7 @@
     <title>Forum | @yield('title')</title>
 </head>
 <body>
+    @include('layouts.nav')
     <div class="cover"></div>
     @if(session('success'))
     <dialog open>
@@ -22,6 +23,8 @@
         </div>
     </dialog>
     @endif
+    
     @yield('content')
+    @include('layouts.footer')
 </body>
 </html>

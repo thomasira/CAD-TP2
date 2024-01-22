@@ -9,11 +9,6 @@
         align-items: center;
         gap: var(--gapl);
 
-        &:first-of-type{
-            padding: 0 var(--gaps);
-            justify-content: space-between;
-            background-color: var(--colorLightAlt);
-        }
         section{
             min-width: 300px;
         }

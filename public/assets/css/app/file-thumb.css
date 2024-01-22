@@ -1,0 +1,9 @@
+.file-thumb{
+    display: flex;
+    background-color: var(--colorLightAlt);
+    gap: var(--gaps);
+    justify-content: space-between;
+    border: 1px solid var(--colorDark);
+    padding: var(--gapxxs);
+    box-shadow: var(--boxShadow);
+}

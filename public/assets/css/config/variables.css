@@ -25,7 +25,7 @@
     --typeText: 'Inter', sans-serif;
 
     /* Taille de polices */
-    --fontxxs: clamp(12px, 1.5vw, 14px);
+    --fontxxs: clamp(14px, 1.5vw, 16px);
     --fontText: clamp(16px, 1.75vw, 20px);
     --fontxs: clamp(18px, 2.25vw, 22px);
     --fonts: clamp(20px, 3vw, 28px);
@@ -57,4 +57,6 @@
 
     --homeType: clamp(340px, 60vw, 500px);
     --borderStd: 1px solid var(--colorDark);
+    --boxShadow: 2px 2px 5px rgba(126, 126, 126, 0.487);
+    --boxShadowInset:inset 2px 2px 5px rgba(126, 126, 126, 0.197);
 }

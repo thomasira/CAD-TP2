@@ -1,7 +1,6 @@
 @extends('layouts.layout')
 @section('title', 'Étudiants')
 @section('content')
-@include('layouts.nav')
 <main>
     <section>
         <header>
@@ -31,5 +30,4 @@
         {{ $students }}
     </section>
 </main>
-@include('layouts.footer')
 @endsection

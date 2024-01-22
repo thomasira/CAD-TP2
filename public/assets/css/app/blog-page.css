@@ -1,0 +1,15 @@
+.blog-page{
+    ul{
+        display: flex;
+        flex-flow: wrap;
+        gap: var(--gapl);
+        li{
+            flex: 340px;
+        }
+    }
+    header{
+        display: flex;
+        gap: var(--gaps);
+        align-items: center;
+    }
+}

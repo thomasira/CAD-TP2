@@ -1,0 +1,26 @@
+.write-page{
+    display: flex;
+    flex-flow: column;
+    gap: var(--gapl);
+
+    form{
+        display: flex;
+        flex-flow: column;
+        gap: var(--gapm);
+        >div{
+        display: flex;
+        flex-flow: wrap;
+        gap: var(--gapxl);
+
+            >section{
+                min-width: 340px;
+                flex: 2;
+
+                &:last-of-type{
+                    flex: 1;
+                }
+            }
+
+        }
+    }
+}

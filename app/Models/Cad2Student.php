@@ -32,6 +32,6 @@ class Cad2Student extends Model
         return $this->hasMany(Cad2Document::class, 'student_id', 'user_id');
     }
     public function user() {
-        return $this->hasOne(Cad2User::class);
+        return $this->belongsTo(Cad2User::class);
     }
 }

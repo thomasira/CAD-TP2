@@ -1,0 +1,58 @@
+.profile {
+    padding: var(--gapxxs);
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: var(--colorMaisD);
+    cursor: pointer;
+    transition: background-color .3s;
+
+    >a{
+        color: var(--colorLight);
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    >div{
+        display: none;
+    }
+    &:hover, &:focus{
+        background-color: var(--colorMais);
+        transition: background-color .3s;
+
+        >div{
+            display: block;
+            background-color: var(--colorLightL);
+            position: absolute;
+            top: 100%;
+            right: 0;
+            >a {
+                padding: var(--gapxxs);
+
+                &:hover{
+                    color: var(--colorMais);
+                }
+
+            }
+            >div {
+                padding: var(--gapxxs);
+                background-color: var(--colorMaisD);
+                color: var(--colorLight);
+                p{
+                    font-size: var(--fontxxs);
+                    margin-bottom: var(--gapTHxxs);
+                }
+
+                >div{
+                    display: flex;
+                    gap: var(--gapxs);
+
+                    & a.selected{
+                        border-bottom: 1px solid var(--colorLight);
+                    }
+                }
+            }
+        }
+    }
+    
+}

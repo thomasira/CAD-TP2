@@ -8,13 +8,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 class Cad2DocumentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $documents = Cad2Document::all();
-        return $documents;
+
+    public function index() {
+        $documents = Cad2Document::paginate(10);
+        return view('document.index', compact('documents'));
     }
 
     /**
@@ -31,7 +28,7 @@ class Cad2DocumentController extends Controller
     public function upload(Request $request)
     {
         $request->validate([
-            'file' => 'required|file|max:2048',
+            'file' => 'required | file | max:2048',
             'name' => 'required | min:3 | max:80'
         ]);
         $path = $request->file('file')->store('public/storage');
@@ -72,6 +69,8 @@ class Cad2DocumentController extends Controller
      */
     public function destroy(Cad2Document $cad2Document)
     {
-        //
+        $cad2Document->delete();
+        Storage::delete($cad2Document->filename);
+        return 'succesws';
     }
 }

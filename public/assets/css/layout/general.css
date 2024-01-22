@@ -5,19 +5,38 @@ body{
 }
 main{
     flex: 1;
-    padding: var(--gapl);
+    padding: var(--gapl) var(--gaps);
     display: flex;
     flex-flow: column;
     align-items: center;
+    gap: var(--gapl);
 
-    section{
+    >div{
+/*         display: flex;
+        justify-content: center; */
+        width: 100%;
+    }
+/*     >div{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        width: 100%;
+        flex: 1;
+    } */
+    >div>section{
+        width: 100%;
         display: flex;
         flex-flow: column;
         gap: var(--gapm);
-        width: 100%;
     }
+    form{
+        align-self: center;
+    }
+/*     input{
+        max-width: 300px;
+    } */
 }
-header{
+/* header{
     display: flex;
     flex-flow: row;
     align-items: center;
@@ -28,7 +47,7 @@ header{
         text-transform: uppercase;
         font-weight: 400;
     }
-}
+} */
 footer{
     max-width: none;
     background-color: var(--colorDark);

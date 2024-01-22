@@ -33,8 +33,11 @@ class CustomAuthController extends Controller
     {
         $request->validate([
             'name' => 'min:3 | max:45',
-            'email' => 'required | email | unique:users',
-            'password' => 'min:6 | max:20'
+            'email' => 'required | email | unique:cad2_users',
+            'password' => 'min:6 | max:20 | confirmed',
+            'address' => 'required | min:6 | max: 100',
+            'city_id' => 'required | exists:cad2_cities,id',
+            'd_o_b' => 'max:12 | date'
         ]);
 
         $user = new Cad2User;
@@ -46,7 +49,9 @@ class CustomAuthController extends Controller
         $student->fill($request->all());
         $student->user_id = $user->id;
         $student->save();
-        return $student;
+
+        Auth::login($user);
+        return redirect(route('profile', $user->id));
     }
 
     /**
@@ -84,9 +89,9 @@ class CustomAuthController extends Controller
             return redirect(route('login'))->withErrors(trans('auth.password'))->withInput();
         }
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
-
+        
         Auth::login($user);
-        return redirect()->intended(route('blog.index'));
+        return redirect()->intended(route('home'));
     }
     /**
      * Remove the specified resource from storage.

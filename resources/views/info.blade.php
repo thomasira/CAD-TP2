@@ -1,12 +1,11 @@
 @extends('layouts.layout')
 @section('title', 'Info')
 @section('content')
-@include('layouts.nav')
 <main class="info">
-    <div>
+    <header class="banner">
         <h1>Info</h1>
         <a href="https://github.com/thomasIRA/CAD-TP1">Suivez le projet sur Github</a>
-    </div>
+    </header>
     <div>
         <section>
             <h2>Résumé du projet</h2>
@@ -32,5 +31,4 @@
         </section>
     </div>
 </main>
-@include('layouts.footer')
 @endsection

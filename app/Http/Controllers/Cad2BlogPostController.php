@@ -17,9 +17,15 @@ class Cad2BlogPostController extends Controller
      */
     public function index()
     {
-        $blog = Cad2BlogpostResource::collection(Cad2BlogPost::paginate(10));
-        $documents = Cad2Document::all();
+        $blog = Cad2BlogpostResource::collection(Cad2BlogPost::select()->orderBy('updated_at', 'DESC')->paginate(9));
+        $documents = Cad2Document::paginate(5);
         return view('blog.index', compact('blog','documents'));
+    }
+    public function home()
+    {
+        $blog = Cad2BlogpostResource::collection(Cad2BlogPost::select()->orderBy('updated_at', 'DESC')->paginate(5));
+        $documents = Cad2Document::select()->orderBy('updated_at', 'DESC')->paginate(5);
+        return view('home', compact('blog','documents'));
     }
 
     /**
@@ -72,7 +78,19 @@ class Cad2BlogPostController extends Controller
      */
     public function edit(Cad2BlogPost $cad2BlogPost)
     {
-        //
+        if($cad2BlogPost->student_id !== Auth::user()->id) return redirect(route('blog.index'));
+        $date = date('Y-m-d');
+        $article = $cad2BlogPost;
+
+        $titles = json_decode($cad2BlogPost->title);
+        $article->title = $titles->fr;
+        $article->title_en = $titles->en;
+
+        $articles = json_decode($cad2BlogPost->article);
+        $article->article = $articles->fr;
+        $article->article_en = $articles->en;
+        
+        return view('blog.edit', compact('article', 'date'));
     }
 
     /**
@@ -80,7 +98,24 @@ class Cad2BlogPostController extends Controller
      */
     public function update(Request $request, Cad2BlogPost $cad2BlogPost)
     {
-        //
+        $request->validate([
+            'title' => 'min:3 | max:50 | required',
+            'title_en' => 'max:50',
+            'article' => 'min:10 | required',
+        ]);
+        $title = [
+            "fr"=>$request->title,
+            "en"=>$request->title_en
+        ];
+        $article = [
+            "fr"=>$request->article,
+            "en"=>$request->article_en
+        ];
+        $cad2BlogPost->update([
+            'title' => json_encode($title),
+            'article' => json_encode($article),
+        ]);
+        return redirect(route('blog.show', $cad2BlogPost));
     }
 
     /**
@@ -88,6 +123,6 @@ class Cad2BlogPostController extends Controller
      */
     public function destroy(Cad2BlogPost $cad2BlogPost)
     {
-        //
+        $cad2BlogPost->delete();
     }
 }

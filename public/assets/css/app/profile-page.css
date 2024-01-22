@@ -1,0 +1,66 @@
+.profile-page{
+    align-items: stretch;
+
+    >header{
+        display: flex;
+        flex-flow: column;
+        align-items: start;
+        gap: 0;
+
+        p{
+            font-size: var(--fontxxs);
+        }
+    }
+
+    h1{
+        font-size: var(--fontxl);
+    }
+    table{
+        width: 100%;
+    }
+    >div{
+        display: flex;
+        gap: var(--gapxl);
+        flex-flow: row wrap;
+
+        >div{
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-flow: column;
+            gap: var(--gapm);
+
+            div{
+                display: flex;
+                gap: var(--gapm);
+            }
+        }
+        >section{
+            flex: 2;
+            min-width: 300px;
+        
+            >div{
+                display: flex;
+                flex-flow: column;
+                gap: var(--gapm);
+            }
+        
+            ul{
+                display: flex;
+                flex-flow: column;
+                gap: var(--gapxs);
+            }
+            header{
+                display: flex;
+                gap: var(--gapxs);
+            }
+    }
+    /*         >div{
+            width: 100%;
+            display: flex;
+            flex-flow: row;
+            gap: var(--gapm);
+        } */
+    }
+        
+}

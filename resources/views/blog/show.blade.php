@@ -1,7 +1,6 @@
 @extends('layouts.layout')
 @section('title', 'Article')
 @section('content')
-@include('layouts.nav')
 <main>
     <section>
         <header>
@@ -14,5 +13,4 @@
         <time>{{ $blog['date'] }}</time>
     </section>
 </main>
-@include('layouts.footer')
 @endsection

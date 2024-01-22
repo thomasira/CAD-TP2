@@ -33,4 +33,14 @@
     &.exit{
         line-height: .6em;
     }
+    &.small{
+        font-size: var(--fontxxs);
+        padding: var(--gapTHxxs);
+    }
+    &.light{
+        background-color: var(--colorLight);
+        &:hover{
+            background-color: var(--colorLightAlt);
+        }
+    }
 }

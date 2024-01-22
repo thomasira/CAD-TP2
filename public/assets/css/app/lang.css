@@ -5,6 +5,7 @@
     flex-flow: column;
     align-items: center;
     background-color: var(--colorLightL);
+    cursor: pointer;
 
     p, a{
         color: var(--colorMaisD);

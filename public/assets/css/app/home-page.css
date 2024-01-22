@@ -1,0 +1,39 @@
+.home-page{
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+    gap: var(--gapxl);
+    
+    h2{
+        font-size: var(--fonts);
+    }
+    h3{
+        font-size: var(--fontxs);
+    }
+    >section{
+        flex: 3;
+        min-width: 300px;
+
+        >header{
+            display: flex;
+            gap: var(--gaps);
+            align-items: center;
+        }
+    }
+    >aside{
+        min-width: 300px;
+        flex: 1;
+        align-self: center;
+        display: flex;
+        flex-flow: column;
+        gap: var(--gaps);
+        background-color: var(--colorLightAlt);
+        padding: var(--gaps);
+        box-shadow: var(--boxShadow);
+    }
+    ul{
+        display: flex;
+        flex-flow: column;
+        gap: var(--gapxs);
+    }
+}

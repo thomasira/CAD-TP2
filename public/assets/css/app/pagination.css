@@ -1,6 +1,6 @@
 [role="navigation"]{
-    
-    &>div:first-of-type{
+    display: flex;
+    &>div{
         display: flex;
         gap: var(--gaps);
 
@@ -25,8 +25,5 @@
                 color: var(--colorMaisDD);
             }
         }
-    }
-    >div:last-of-type{
-        display: none;
     }
 }

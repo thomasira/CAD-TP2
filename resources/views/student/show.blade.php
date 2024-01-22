@@ -1,8 +1,7 @@
 @extends('layouts.layout')
 @section('title', 'Student')
 @section('content')
-@include('layouts.nav')
-<main class="etudiant-file">
+<main>
     <section>
         <header>
             <h1>{{ $cad2Student->name }}</h1>
@@ -17,7 +16,7 @@
             </form>
         </div>
     </section>
-    <section>
+    <section class="etudiant-file">
         <table>
             <tr>
                 <th>Email</th>
@@ -37,5 +36,4 @@
         </table>
     </section>
 </main>
-@include('layouts.footer')
 @endsection

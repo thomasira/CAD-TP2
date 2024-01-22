@@ -1,7 +1,6 @@
 @extends('layouts.layout')
 @section('title', 'Modifier')
 @section('content')
-@include('layouts.nav')
 <main class="formulaire">
     <section>
         <h2>Formulaire de modification d'un étudiant</h2>
@@ -57,5 +56,4 @@
         </form>
     </section>
 </main>
-@include('layouts.footer')
 @endsection

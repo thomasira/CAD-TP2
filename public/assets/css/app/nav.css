@@ -5,15 +5,17 @@
     align-items: center;
     gap: var(--gapm);
     justify-content: space-between;
+    font-size: var(--fontText);
 
     >div{
         display: flex;
         flex-flow: row;
-        gap: var(--gaps);
+        gap: var(--gapxxs);
         align-items: center;
         z-index: 1;
-        div:not(:last-of-type){
-            padding: var(--gaps);
+        
+        >div{
+            padding: var(--gapxxs);
             
             a{
                 text-transform: uppercase;
@@ -29,6 +31,7 @@
             &:hover{
                 a{
                     color: var(--colorMaisD);
+                    
                 }
                 span{
                     width: 100%;
@@ -38,6 +41,7 @@
                 display: flex;
                 align-items: center;
                 padding: 0;
+
             }
         }
     }

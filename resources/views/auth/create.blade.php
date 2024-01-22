@@ -1,59 +1,48 @@
 @extends('layouts.layout')
 @section('title', 'Create User')
 @section('content')
-<section class="">
-    <div class="">
-        <div class="">
-            <div class="">
-                <form method="post">
+<main>
+    <header class="banner">
+        <h1>Inscription</h1>
+    </header>
+    <div>
+        <section>
+            <form method="post" class="formulaire">
                 @csrf
-                    <div class="">
-                        <h2>@lang('lang.text_user-add-title')</h2>
-                    </div>
-                    <div class="">
-                        <div class="">
-                            <label>@lang('lang.form_user-name')
-                                <input type="text" name="name" class="" value="{{ old('name') }}">
-                                @if ($errors->has('name'))
-                                    <span class="">{{ $errors->first('name') }}</span>
-                                @endif
-                            </label>
-                            <label>@lang('lang.form_user-email')
-                                <input type="email" name="email" class="form-control" value="{{ old('email') }}">
-                                @if ($errors->has('email'))
-                                    <span class="">{{ $errors->first('email') }}</span>
-                                @endif
-                            </label>
-                            <label>@lang('lang.form_user-password')
-                                <input type="password" name="password" class="form-control">
-                                @if ($errors->has('password'))
-                                    <span class="text-danger">{{ $errors->first('password') }}</span>
-                                @endif
-                            </label>
-                            <label>address
-                                <input type="text" name="address" value="{{ old('address') }}">
-                                @if ($errors->has('address'))
-                                    <span class="">{{ $errors->first('address') }}</span>
-                                @endif
-                            </label>
-                            <label>phone number
-                                <input type="text" name="phone" value="{{ old('phone') }}">
-                                @if ($errors->has('phone'))
-                                    <span class="">{{ $errors->first('phone') }}</span>
-                                @endif
-                            </label>
-                            <label>date of birth
-                                <input type="date" name="d_o_b" value="{{ old('phone') }}">
-                                @if ($errors->has('d_o_b'))
-                                    <span class="">{{ $errors->first('d_o_b') }}</span>
-                                @endif
-                            </label>
-                            <label>City
+                <header>
+                    <h2>Créer un compte</h2>
+                    <p>* les champs suivis d'un astérisque sont obligatoires.</p>
+                </header>
+                <div>
+                    <div>
+                        <label>Nom *
+                            <input type="text" name="name" value="{{ old('name') }}">
+                            @if ($errors->has('name'))
+                                <span class="error">{{ $errors->first('name') }}</span>
+                            @endif
+                        </label>
+                        <label>Téléphone
+                            <input type="text" name="phone" value="{{ old('phone') }}">
+                            @if ($errors->has('phone'))
+                                <span class="error">{{ $errors->first('phone') }}</span>
+                            @endif
+                        </label>
+                        <label>Adresse *
+                            <input type="text" name="address" value="{{ old('address') }}">
+                            @if ($errors->has('address'))
+                                <span class="error">{{ $errors->first('address') }}</span>
+                            @endif
+                        </label>
+                        <div>
+                            <label>Ville *
                                 <select name="city_id">
                                 @foreach ($cities as $city)
                                     <option value="{{ $city->id }}">{{ $city->city }}</option>
                                 @endforeach
                                 </select>
+                            </label>
+                            <label>Date de naissance
+                                <input type="date" name="d_o_b" value="{{ old('d_o_b') }}">
                                 @if ($errors->has('d_o_b'))
                                     <span class="">{{ $errors->first('d_o_b') }}</span>
                                 @endif
@@ -61,11 +50,26 @@
                         </div>
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-success">@lang('lang.form_user-submit')</button>
+                        <label>Courriel *
+                            <input type="text" name="email" value="{{ old('email') }}">
+                            @if ($errors->has('email'))
+                                <span class="error">{{ $errors->first('email') }}</span>
+                            @endif
+                        </label>
+                        <label>Mot de passe *
+                            <input type="password" name="password">
+                            @if($errors->has('password'))
+                                <span class="error">{{ $errors->first('password') }}</span>
+                            @endif
+                        </label>
+                        <label>Confirmer le mot de passe *
+                            <input type="password" name="password_confirmation">
+                        </label>
                     </div>
-                </form>
-            </div>
-        </div>
+                </div>
+                <button class="btn">Enregistrer</button>
+            </form>
+        </section>
     </div>
-</section>
+</main>
 @endsection
