@@ -15,7 +15,7 @@ return [
     'text_add-button' => 'Ajouter',
 
     //create user
-    'text_user-add-title' => 'Créer un compte',
+    'user-create-title' => 'Créer un compte',
     'form_user-name' => 'Nom',
     'form_user-email' => 'Courriel',
     'form_user-password' => 'Mot de passe',
