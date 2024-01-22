@@ -10,7 +10,7 @@
             <form method="post" class="formulaire">
                 @csrf
                 <header>
-                    <h2>@lang('lang.user-create.title')</h2>
+                    <h2>@lang('lang.user-create-title')</h2>
                     <p>* les champs suivis d'un astérisque sont obligatoires.</p>
                 </header>
                 <div>
