@@ -25,8 +25,8 @@ return [
     'blog-create-title' => 'Titre',
     'blog-create-article' => 'Article',
     'blog-create-header-en' => 'Article en anglais',
-    'blog-create-title-en' => 'Titre-en',
-    'blog-create-article-en' => 'Article-en',
+    'blog-create-title-en' => 'Titre anglais',
+    'blog-create-article-en' => 'Article anglais',
 
 
     //edit blog
@@ -35,12 +35,14 @@ return [
     //index blog
     'blog-index-banner' => 'Les articles',
 
-
     //show blog
     'blog-show-written' => 'Écrit par',
 
-
-
+    //index documents
+    'document-index-banner' => 'Les documents',
+    'document-upload-title' => 'Téléverser un nouveau document',
+    'document-upload-name' => 'Nom du document',
+ 
     //create user
     'user-create-title' => 'Créer un compte',
     'form-user-name' => 'Nom',
@@ -62,6 +64,8 @@ return [
     'btn-save' => 'Sauvegarder',
     'btn-login' => 'Connexion',
     'btn-register' => 'S\'inscrire',
+    'btn-upload' => 'Téléverser',
+    'btn-download' => 'Télécharger',
     'btn-publish' => 'Publier',
     'btn-write-blog' => 'écrire un article',
     'btn-read-blog' => 'lire l\'article',

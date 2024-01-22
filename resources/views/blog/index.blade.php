@@ -19,7 +19,7 @@
                         <p>{{ $article['date'] }}</p>
                     </section>
                     <div>
-                        <a href="{{ route('blog.show', $article['id']) }}" class="btn">@lang('lang.bnt-rad-blog')</a>
+                        <a href="{{ route('blog.show', $article['id']) }}" class="btn">@lang('lang.btn-read-blog')</a>
                     </div>
                 </li>
             @endforeach

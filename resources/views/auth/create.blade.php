@@ -50,24 +50,24 @@
                         </div>
                     </div>
                     <div>
-                        <label>@('lang.form-user-email') *
+                        <label>@lang('lang.form-user-email') *
                             <input type="text" name="email" value="{{ old('email') }}">
                             @if ($errors->has('email'))
                                 <span class="error">{{ $errors->first('email') }}</span>
                             @endif
                         </label>
-                        <label>@('lang.form-user-password') *
+                        <label>@lang('lang.form-user-password') *
                             <input type="password" name="password">
                             @if($errors->has('password'))
                                 <span class="error">{{ $errors->first('password') }}</span>
                             @endif
                         </label>
-                        <label>@('lang.form-user-password-confirmed') *
+                        <label>@lang('lang.form-user-password-confirmed') *
                             <input type="password" name="password_confirmation">
                         </label>
                     </div>
                 </div>
-                <button class="btn">@lang('btn-save')</button>
+                <button class="btn">@lang('lang.btn-save')</button>
             </form>
         </section>
     </div>
