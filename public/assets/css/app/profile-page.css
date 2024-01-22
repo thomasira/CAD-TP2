@@ -30,15 +30,26 @@
             flex-flow: column;
             gap: var(--gapm);
 
-            div{
+            >section{
                 display: flex;
-                gap: var(--gapm);
+                flex-flow: column;
+                gap: var(--gaps);
+
+                >ul{
+                    display: flex;
+                    flex-flow: column;
+                    gap: var(--gaps);
+                }
+                >div{
+                    display: flex;
+                    gap: var(--gapm);
+                }
             }
         }
         >section{
             flex: 2;
             min-width: 300px;
-        
+
             >div{
                 display: flex;
                 flex-flow: column;

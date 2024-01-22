@@ -9,12 +9,13 @@
     transition: background-color .4s;
     background: none;
     text-align: center;
+    box-shadow: var(--boxShadow);
 
     &:hover{
         cursor: pointer;
         border-color: var(--colorMaisDD);
         color: var(--colorMaisDD);
-        background-color: var(--colorLightAlt);
+        background-color: var(--colorTrans);
         transition: background-color .4s;
     }
 

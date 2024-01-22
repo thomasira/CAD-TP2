@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Cad2Blogpost;
 use Illuminate\Http\Request;
 use App\Http\Resources\Cad2BlogpostResource;
+use App\Http\Resources\Cad2DocumentResource;
 use App\Models\Cad2Document;
 
 class Cad2StudentController extends Controller
@@ -59,7 +60,7 @@ class Cad2StudentController extends Controller
     {
         if($cad2Student->user_id !== Auth::user()->id) return redirect(route('blog.index'));
         $blogpost = Cad2BlogpostResource::collection($cad2Student->blogpost)->resolve();
-        $documents = $cad2Student->document;
+        $documents = Cad2DocumentResource::collection($cad2Student->document)->resolve();
         return view('profile.profile',compact('cad2Student', 'blogpost', 'documents'));
     }
     

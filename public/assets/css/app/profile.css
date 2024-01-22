@@ -14,7 +14,9 @@
         font-weight: 600;
     }
     >div{
+        min-width: 100%;
         display: none;
+        box-shadow: var(--boxShadow);
     }
     &:hover, &:focus{
         background-color: var(--colorMais);
@@ -26,8 +28,14 @@
             position: absolute;
             top: 100%;
             right: 0;
+
+            a{
+                text-transform: uppercase;
+            }
+            
             >a {
-                padding: var(--gapxxs);
+                max-width: 100%;
+                padding:var(--gapxs);
 
                 &:hover{
                     color: var(--colorMais);
@@ -47,8 +55,14 @@
                     display: flex;
                     gap: var(--gapxs);
 
-                    & a.selected{
-                        border-bottom: 1px solid var(--colorLight);
+                    a{
+                        &.selected{
+
+                            border-bottom: 1px solid var(--colorLight);
+                        }
+                        &:hover{
+                            color: var(--colorMais);
+                        }
                     }
                 }
             }

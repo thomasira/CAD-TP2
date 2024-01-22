@@ -64,9 +64,21 @@
                 <h2>Vos document</h2>
                 <ul>
                     @forelse($documents as $document)
-                    <li class="file-thumb">{{ $document->name }}<a href="{{ route('document.download', $document->id) }}"><img src="../assets/icons/download.svg" alt="download link" title="download file"></a></li>
+                    <li class="file-thumb">
+                        <span>{{ $document['name'] }}</span>
+                        <div>
+                            <a href="{{ route('document.download', $document['id']) }}"><img src="../assets/icons/download.svg" alt="download link" title="download file"></a>
+                            <form method="post" action="{{ route('document.delete', $document['id']) }}">
+                                @method('delete')
+                                @csrf
+                                <button class="icon">
+                                    <img src="../assets/icons/delete.svg" alt="delete file" title="delete file">
+                                </button>
+                            </form>
+                        </div>
+                    </li>
                     @empty
-                        <li>No documents availbale</li>
+                        <li>@lang('lang.doument-empty')</li>
                     @endforelse
                 </ul>
             </section>

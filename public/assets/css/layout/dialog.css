@@ -2,17 +2,19 @@
 dialog{
     position: relative;
     border: none;
-    background-color: var(--colorLightT);
-    padding: var(--gapl);
+    background-color: var(--colorSuccess);
+    padding: var(--gapm);
     
     div{
         display: flex; 
         flex-flow: row;
         align-items: center;
+        justify-content: space-between;
         gap: var(--gapl);
     }
     p{
         text-transform: uppercase;
-        color: var(--colorMaisD);
+        font-weight: 600;
+        color: var(--colorDark);
     }
 }

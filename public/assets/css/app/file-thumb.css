@@ -6,4 +6,9 @@
     border: 1px solid var(--colorDark);
     padding: var(--gapxxs);
     box-shadow: var(--boxShadow);
+    align-items: center;
+    >div{
+        display: flex;
+        gap: var(--gapxs);
+    }
 }

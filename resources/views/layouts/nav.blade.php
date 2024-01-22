@@ -1,8 +1,8 @@
 @php 
-$locale = session()->get('locale');
+$locale = session()->get('locale') ? session()->get('locale') : 'fr';
 $user = Auth::user() ? Auth::user() : false;
-if($user) $profile = $user->student->name[0];
-else $profile = 'guest';
+if($user) $profile = $user->student->name;
+else $profile = 'FRM';
 @endphp
 <nav class="nav">
     <a href="{{ route('home') }}" class="logo" title="home">forum_</a>
@@ -18,7 +18,7 @@ else $profile = 'guest';
             <span></span>
         </div>
         <div>
-            <a href="{{ route('logout') }}">@lang('lang.nav-logout')</a>
+            <a href="{{ route('document.index') }}">@lang('lang.nav-file')</a>
             <span></span>
         </div>
         @endguest
@@ -28,15 +28,16 @@ else $profile = 'guest';
         </div>
         <aside class="profile"  tabindex="0">
         @guest
-            <a href="{{ route('login') }}" title="login">F_</a>
+            <a href="{{ route('login') }}" title="login">{{ $profile }}_</a>
         @else
-            <a href="{{ route('profile', $user->id) }}" title="profile">{{ $user->name }}_</a>
+            <a href="{{ route('profile', $user->id) }}" title="profile">{{ $profile }}_</a>
         @endguest
             <div>
             @guest
                 <a href="{{ route('login') }}">@lang('lang.nav-login')</a>
             @else
-                <a href="{{ route('profile', $user->id) }}" title="profile">@lang('lang.nav-profile')</a>
+                <a href="{{ route('profile', $user->id) }}">@lang('lang.nav-profile')</a>
+                <a href="{{ route('logout') }}">@lang('lang.nav-logout')</a>
             @endguest
                 <div>
                     <p>langues</p>

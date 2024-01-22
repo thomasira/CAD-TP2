@@ -31,8 +31,8 @@
                 <h3>Documents récents</h3>
             </header>
             <ul>
-                @foreach($documents as $document)
-                    <li class="file-thumb">{{ $document->name }}<a href="{{ route('document.download', $document->id) }}"><img src="assets/icons/download.svg" alt="download link" title="download file"></a></li>
+                @foreach($documents->resolve() as $document)
+                    <li class="file-thumb">{{ $document['name'] }}<a href="{{ route('document.download', $document['id']) }}"><img src="assets/icons/download.svg" alt="download link" title="download file"></a></li>
                 @endforeach
             </ul>
             <a href="{{ route('document.index') }}" class="btn light">Voir tout les documents</a>

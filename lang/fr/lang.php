@@ -69,14 +69,16 @@ return [
     'btn-publish' => 'Publier',
     'btn-write-blog' => 'écrire un article',
     'btn-read-blog' => 'lire l\'article',
-
     'text_blog_success' => 'wow! vous avez créé un article',
 
 
     //words
-
     'word-or' => 'ou',
     
     //warnings
     'form-warning' => ' *les champs suivis d\'un astérisque sont obligatoires.',
+
+    //dialogs
+    'dialog-upload-success' => 'Téléversement réussi',
+    'dialog-save-success' => 'Enregistrement réussi'
 ];

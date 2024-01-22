@@ -6,11 +6,13 @@ use App\Models\Cad2Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Resources\Cad2DocumentResource;
+
 class Cad2DocumentController extends Controller
 {
 
     public function index() {
-        $documents = Cad2Document::paginate(10);
+        $documents = Cad2DocumentResource::collection(Cad2Document::select()->orderBy('updated_at', 'DESC')->paginate(10));
         return view('document.index', compact('documents'));
     }
 
@@ -28,40 +30,21 @@ class Cad2DocumentController extends Controller
     public function upload(Request $request)
     {
         $request->validate([
-            'file' => 'required | file | max:2048',
-            'name' => 'required | min:3 | max:80'
+            'file' => 'required | file | max:2048 | mimes:pdf,zip,doc',
+            'name' => 'required | min:3 | max:80',
+            'name_en' => 'max:80'
         ]);
         $path = $request->file('file')->store('public/storage');
+        $name = [
+            "fr"=>$request->name,
+            "en"=>$request->name_en
+        ];
         Cad2Document::create([
-            'name' => $request->name,
-            'filename' =>$path,
+            'name' => json_encode($name),
+            'filename' => $path,
             'student_id' => Auth::user()->id
         ]);
-        return redirect(route('blog.index'))->withSuccess('file uplaoded');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Cad2Document $cad2Document)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Cad2Document $cad2Document)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Cad2Document $cad2Document)
-    {
-        //
+        return redirect()->back()->withSuccess(trans('lang.dialog-upload-success'));
     }
 
     /**
@@ -71,6 +54,6 @@ class Cad2DocumentController extends Controller
     {
         $cad2Document->delete();
         Storage::delete($cad2Document->filename);
-        return 'succesws';
+        return redirect()->back()->withSuccess(trans('lang.dialog-delete-success'));
     }
 }

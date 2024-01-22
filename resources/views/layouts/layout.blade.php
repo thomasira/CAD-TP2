@@ -18,7 +18,7 @@
         <div>
             <p>{{ session('success') }}</p>
             <form method="dialog">
-                <button class="btn exit danger">x</button>
+                <button class="btn">x</button>
             </form>
         </div>
     </dialog>

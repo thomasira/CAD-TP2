@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Cad2BlogpostResource;
+use App\Http\Resources\Cad2DocumentResource;
 use App\Models\Cad2Student;
 use App\Models\Cad2Document;
 use App\Models\Cad2BlogPost;
@@ -17,14 +18,14 @@ class Cad2BlogPostController extends Controller
      */
     public function index()
     {
-        $blog = Cad2BlogpostResource::collection(Cad2BlogPost::select()->orderBy('updated_at', 'DESC')->paginate(9));
-        $documents = Cad2Document::paginate(5);
+        $blog = Cad2BlogpostResource::collection(Cad2BlogPost::select()->orderBy('updated_at', 'DESC')->paginate(10));
+        $documents = Cad2Document::paginate(6);
         return view('blog.index', compact('blog','documents'));
     }
     public function home()
     {
-        $blog = Cad2BlogpostResource::collection(Cad2BlogPost::select()->orderBy('updated_at', 'DESC')->paginate(5));
-        $documents = Cad2Document::select()->orderBy('updated_at', 'DESC')->paginate(5);
+        $blog = Cad2BlogpostResource::collection(Cad2BlogPost::select()->orderBy('updated_at', 'DESC')->paginate(4));
+        $documents = Cad2DocumentResource::collection(Cad2Document::select()->orderBy('updated_at', 'DESC')->paginate(6));
         return view('home', compact('blog','documents'));
     }
 
@@ -115,7 +116,7 @@ class Cad2BlogPostController extends Controller
             'title' => json_encode($title),
             'article' => json_encode($article),
         ]);
-        return redirect(route('blog.show', $cad2BlogPost));
+        return redirect(route('profile', $cad2BlogPost->student_id))->withSuccess(trans('lang.dialog-edit-success'));;
     }
 
     /**
@@ -124,5 +125,6 @@ class Cad2BlogPostController extends Controller
     public function destroy(Cad2BlogPost $cad2BlogPost)
     {
         $cad2BlogPost->delete();
+        return redirect()->back()->withSuccess(trans('lang.dialog-delete-success'));
     }
 }

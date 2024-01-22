@@ -3,6 +3,9 @@ body{
     background-color: var(--colorLight);
     color: var(--colorDark);
 }
+p, h1, h2, h3{
+    max-width: 100vw;
+}
 main{
     flex: 1;
     padding: var(--gapl) var(--gaps);
@@ -12,17 +15,8 @@ main{
     gap: var(--gapl);
 
     >div{
-/*         display: flex;
-        justify-content: center; */
         width: 100%;
     }
-/*     >div{
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        width: 100%;
-        flex: 1;
-    } */
     >div>section{
         width: 100%;
         display: flex;

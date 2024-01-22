@@ -1,6 +1,7 @@
 
 .nav{
     display: flex;
+    flex-flow: wrap;
     padding: var(--gaps);
     align-items: center;
     gap: var(--gapm);
@@ -9,7 +10,7 @@
 
     >div{
         display: flex;
-        flex-flow: row;
+        flex-flow: wrap;
         gap: var(--gapxxs);
         align-items: center;
         z-index: 1;
@@ -30,8 +31,7 @@
             }
             &:hover{
                 a{
-                    color: var(--colorMaisD);
-                    
+                    color: var(--colorMaisD); 
                 }
                 span{
                     width: 100%;
@@ -41,7 +41,6 @@
                 display: flex;
                 align-items: center;
                 padding: 0;
-
             }
         }
     }
