@@ -84,7 +84,7 @@ class CustomAuthController extends Controller
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         
         Auth::login($user);
-        return redirect()->intended(route('home'));
+        return redirect()->route('profile', Auth::user()->id);
     }
     /**
      * Remove the specified resource from storage.
