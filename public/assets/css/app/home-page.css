@@ -27,9 +27,9 @@
         display: flex;
         flex-flow: column;
         gap: var(--gaps);
-        background-color: var(--colorLightAlt);
         padding: var(--gaps);
         box-shadow: var(--boxShadow);
+        background-color: var(--colorLightAlt);
     }
     ul{
         display: flex;

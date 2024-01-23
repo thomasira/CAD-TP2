@@ -1,4 +1,5 @@
 .file-thumb{
+    max-width: 420px;
     display: flex;
     background-color: var(--colorLightAlt);
     gap: var(--gaps);
@@ -7,6 +8,16 @@
     padding: var(--gapxxs);
     box-shadow: var(--boxShadow);
     align-items: center;
+
+    >header{
+
+        h4{
+            font-size: var(--fontText);
+        }
+        p{
+            font-size: var(--fontxxs);
+        }
+    }
     >div{
         display: flex;
         gap: var(--gapxs);

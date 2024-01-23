@@ -10,10 +10,14 @@ use App\Http\Resources\Cad2DocumentResource;
 
 class Cad2DocumentController extends Controller
 {
-
     public function index() {
         $documents = Cad2DocumentResource::collection(Cad2Document::select()->orderBy('updated_at', 'DESC')->paginate(10));
         return view('document.index', compact('documents'));
+    }
+
+    public function create()
+    {
+        return view('document.create');
     }
 
     /**
@@ -26,6 +30,7 @@ class Cad2DocumentController extends Controller
 
     public function edit(Cad2Document $cad2Document)
     {
+        if($cad2Document->student_id !== Auth::user()->id) return redirect(route('blog.index'));
         $document = $cad2Document;
         $names = json_decode($cad2Document->name);
         $document->name = $names->fr;
@@ -46,7 +51,7 @@ class Cad2DocumentController extends Controller
         $cad2Document->update([
             'name' => json_encode($name)
         ]);
-        return redirect()->route('profile', Auth::user()->id)->withSuccess(trans('lang.dialog-update-success'));
+        return redirect()->route('profile', Auth::user()->id)->withSuccess(trans('lang.dialog-edit-success'));
     }
 
     /**
@@ -69,7 +74,7 @@ class Cad2DocumentController extends Controller
             'filename' => $path,
             'student_id' => Auth::user()->id
         ]);
-        return redirect()->back()->withSuccess(trans('lang.dialog-upload-success'));
+        return redirect()->route('profile', Auth::user()->id)->withSuccess(trans('lang.dialog-upload-success'));
     }
 
     /**
@@ -79,6 +84,6 @@ class Cad2DocumentController extends Controller
     {
         $cad2Document->delete();
         Storage::delete($cad2Document->filename);
-        return redirect()->back()->withSuccess(trans('lang.dialog-delete-success'));
+        return redirect()->route('profile', Auth::user()->id)->withSuccess(trans('lang.dialog-delete-success'));
     }
 }

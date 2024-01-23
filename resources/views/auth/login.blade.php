@@ -3,7 +3,7 @@
 @section('content')
 <main>
     <header class="banner">
-        <h1>@lang('lang.login-title')</h1>
+        <h1>@lang('lang.text-login')</h1>
     </header>
     <div>
         <section>

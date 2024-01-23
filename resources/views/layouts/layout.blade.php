@@ -8,7 +8,7 @@
     <meta name="description" content="projet scolaire de forum étudiant implémentant l'architecture laravel et la création de base de données dynamique.">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <script src="{{ asset('assets/js/main.js') }}" type="module"></script>
-    <title>Forum | @yield('title')</title>
+    <title>@yield('title') | Forum</title>
 </head>
 <body>
     @include('layouts.nav')
@@ -23,7 +23,6 @@
         </div>
     </dialog>
     @endif
-    
     @yield('content')
     @include('layouts.footer')
 </body>

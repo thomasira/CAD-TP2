@@ -1,0 +1,30 @@
+.article-page{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+    gap: var(--gapl);
+
+    >article{
+        min-width: 340px;
+        padding: var(--gaps);
+        background-color: var(--colorLightL);
+        flex: 3;
+        display: flex;
+        flex-flow: column;
+        gap: var(--gapxs);
+
+        >h1{
+            text-align: center;
+        }
+    }
+    >header{
+        flex: 1;
+        padding: var(--gapxs);
+        background-color: var(--colorLightAlt);
+        height: max-content;
+        display: flex;
+        flex-flow: column;
+        gap: var(--gapxs);
+    }
+}

@@ -1,9 +1,9 @@
 @extends('layouts.layout')
-@section('title', 'Modifier')
+@section('title', 'user edit')
 @section('content')
 <main>
     <header class="banner">
-        <h1>modifier info</h1>
+        <h1>@lang('lang.user-edit-banner')</h1>
     </header>
     <div>
         <section>
@@ -11,11 +11,8 @@
                 @csrf
                 @method('put')
                 <header>
-                    <h3>Formulaire c45b</h3>
-                    <div>
-                        <p>ID{{ $student->id }}</p>
-                        <p>{{ $student->createdAt }}</p>
-                    </div>
+                    <h3>@lang('lang.word-student') ID{{ $student->user_id }}</h3>
+                    <p>@lang('lang.form-warning')</p>
                 </header>
                 <div>
                     <div>

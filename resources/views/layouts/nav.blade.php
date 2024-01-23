@@ -27,11 +27,10 @@ else $profile = 'FRM';
             <span></span>
         </div>
         <aside class="profile"  tabindex="0">
-        @guest
-            <a href="{{ route('login') }}" title="login">{{ $profile }}_</a>
-        @else
-            <a href="{{ route('profile', $user->id) }}" title="profile">{{ $profile }}_</a>
-        @endguest
+        <label for="open_menu">
+            <input type="checkbox" id="open_menu">
+            <p>{{ $profile }}_</p>
+        </label>
             <div>
             @guest
                 <a href="{{ route('login') }}">@lang('lang.nav-login')</a>

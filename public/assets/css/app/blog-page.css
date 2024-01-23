@@ -7,7 +7,7 @@
             flex: 340px;
         }
     }
-    header{
+    >header{
         display: flex;
         gap: var(--gaps);
         align-items: center;

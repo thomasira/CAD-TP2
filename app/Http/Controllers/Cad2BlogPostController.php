@@ -22,6 +22,10 @@ class Cad2BlogPostController extends Controller
         $documents = Cad2Document::paginate(6);
         return view('blog.index', compact('blog','documents'));
     }
+
+    /**
+     * Display some resource for the home page
+     */
     public function home()
     {
         $blog = Cad2BlogpostResource::collection(Cad2BlogPost::select()->orderBy('updated_at', 'DESC')->paginate(4));
@@ -61,7 +65,7 @@ class Cad2BlogPostController extends Controller
             'article' => json_encode($article),
             'student_id' => Auth::user()->id,
         ]);
-        return redirect(route('blog.show', $newBlog));
+        return redirect(route('blog.show', $newBlog))->withSuccess(trans('lang.dialog-save-success'));
     }
 
     /**
@@ -80,6 +84,7 @@ class Cad2BlogPostController extends Controller
     public function edit(Cad2BlogPost $cad2BlogPost)
     {
         if($cad2BlogPost->student_id !== Auth::user()->id) return redirect(route('blog.index'));
+        
         $date = date('Y-m-d');
         $article = $cad2BlogPost;
 

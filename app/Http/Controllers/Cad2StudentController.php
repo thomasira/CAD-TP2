@@ -56,16 +56,7 @@ class Cad2StudentController extends Controller
         $student->save();
 
         Auth::login($user);
-        return redirect(route('profile', $user->id));
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Cad2Student $cad2Student)
-    {
-        $blogPost = Cad2BlogpostResource::collection($cad2Student->blogPost);
-        return view('student.show',compact('cad2Student', 'blogPost'));
+        return redirect(route('profile', $user->id))->withSuccess(trans('lang.dialog-account-success'));
     }
 
     /**
@@ -73,6 +64,8 @@ class Cad2StudentController extends Controller
      */
     public function edit(Cad2Student $cad2Student)
     {
+        if($cad2Student->user_id !== Auth::user()->id) return redirect(route('blog.index'));
+
         $cities = Cad2City::all();
         $student = $cad2Student;
         return view('student.edit', compact('student', 'cities'));
@@ -81,6 +74,7 @@ class Cad2StudentController extends Controller
     public function profile(Cad2Student $cad2Student)
     {
         if($cad2Student->user_id !== Auth::user()->id) return redirect(route('blog.index'));
+        
         $blogpost = Cad2BlogpostResource::collection($cad2Student->blogpost)->resolve();
         $documents = Cad2DocumentResource::collection($cad2Student->document)->resolve();
         return view('profile.profile',compact('cad2Student', 'blogpost', 'documents'));
@@ -103,7 +97,6 @@ class Cad2StudentController extends Controller
             ]);
         }
 
-        /* $user = new Cad2User; */
         $cad2Student->user->update([
             'email' => $request->email
         ]);
@@ -114,9 +107,7 @@ class Cad2StudentController extends Controller
             'd_o_b' => $request->d_o_b,
             'city_id' => $request->city_id
         ]);
-/*         $student->fill($request->all());
-        $student->save(); */
-        return redirect(route('profile', Auth::user()->id));
+        return redirect(route('profile', Auth::user()->id))->withSuccess(trans('lang.dialog-edit-success'));
     }
 
     /**
@@ -125,7 +116,6 @@ class Cad2StudentController extends Controller
     public function destroy(Cad2Student $cad2Student)
     {
         $cad2Student->user->delete();
-        /* $cad2Student->delete(); */
         return redirect()->route('login')->withSuccess(trans('lang.dialog-delete-user-success'));
     }
 }

@@ -37,7 +37,6 @@ Route::middleware('auth')->group(function() {
 
     //student
     Route::get('students', [Cad2StudentController::class, 'index'])->name('student.index');
-    Route::get('student/{cad2Student}', [Cad2StudentController::class, 'show'])->name('student.show');
     Route::get('student-edit/{cad2Student}', [Cad2StudentController::class, 'edit'])->name('student.edit');
     Route::put('student-edit/{cad2Student}', [Cad2StudentController::class, 'update'])->name('student.update');
     Route::delete('student-delete/{cad2Student}', [Cad2StudentController::class, 'destroy'])->name('student.delete');
@@ -57,6 +56,7 @@ Route::middleware('auth')->group(function() {
 
     //document
     Route::get('documents', [Cad2DocumentController::class, 'index'])->name('document.index');
+    Route::get('document-create', [Cad2DocumentController::class, 'create'])->name('document.create');
     Route::get('document-edit/{cad2Document}', [Cad2DocumentController::class, 'edit'])->name('document.edit');
     Route::put('document-edit/{cad2Document}', [Cad2DocumentController::class, 'update'])->name('document.update');
     Route::post('upload', [Cad2DocumentController::class, 'upload'])->name('document.upload');

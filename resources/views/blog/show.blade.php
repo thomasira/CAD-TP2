@@ -2,15 +2,21 @@
 @section('title', 'Article')
 @section('content')
 <main>
-    <section>
-        <header>
-            <h1>{{ $blog['title'] }}</h1>  
-            <p>@lang('lang.blog-show-written') {{ $blog['author'] }}</p>
-        </header>
+    <section class="article-page">
         <article>
+            <h1>{{ $blog['title'] }}</h1>  
             <p>{{ $blog['article'] }}</p>
         </article>
-        <time>{{ $blog['date'] }}</time>
+        <header>
+            <div>
+                <p>@lang('lang.blog-show-written') :</p>
+                <strong>{{ $blog['author'] }}</strong>
+            </div>
+            <div>
+                <p>@lang('lang.blog-show-date') :</p>
+                <time><strong>{{ $blog['date'] }}</strong></time>
+            </div>
+        </header>
     </section>
 </main>
 @endsection

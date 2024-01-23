@@ -40,8 +40,10 @@ export default class{
                 easing: 'easeOutExpo',
                 complete: function() { elType1.remove(); elCursor.remove(); }
             });
+            const type = document.querySelector('[data-js-type="2"]');
+            const text = type.dataset.jsText;
             new Typed('[data-js-type="2"]', {
-                strings: ["n.m. Lieu où l'on discute les affaires publiques ; place où avaient lieu les assemblées du peuple, dans l'Antiquité romaine. Lieu virtuel permettant une réunion, un discussion ouverte à propos d'un sujet particulier ; service permettant l'échange et la discussion sur un thème donné. Service permettant discussions et échanges sur un thème donné : chaque utilisateur peut lire à tout moment les interventions de tous les autres et apporter sa propre contribution sous forme d'articles.Par extension, on désigne également par ce terme les systèmes de discussion télématiques, qui offrent généralement un service de téléchargement (connus en anglais sous le nom de,).(date de la publication : 01/09/2000 - éd. commission de l'informatique et des composants électroniques) *langue-francaise TV-5*"],
+                strings: [text],
                 showCursor: false,
                 typeSpeed: 30,
             });

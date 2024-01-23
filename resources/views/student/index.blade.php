@@ -22,7 +22,11 @@
             @foreach($students as $student)
                 <tr>
                     <th>{{ $student->id }}</th>
-                    <td><a href="{{ route('student.show', $student->user_id) }}">{{ $student->name }}</a></td>
+                    <td>{{ $student->name }}</td>
+                    <td>{{ $student->user->email }}</td>
+                    <td>{{ $student->phone }}</td>
+                    <td>{{ $student->address }}</td>
+                    <td>{{ $student->city->city }}</td>
                 </tr>
             @endforeach
             </tbody>
