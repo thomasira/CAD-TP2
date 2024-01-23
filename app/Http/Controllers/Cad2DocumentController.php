@@ -24,6 +24,31 @@ class Cad2DocumentController extends Controller
         return Storage::download($cad2Document->filename);
     }
 
+    public function edit(Cad2Document $cad2Document)
+    {
+        $document = $cad2Document;
+        $names = json_decode($cad2Document->name);
+        $document->name = $names->fr;
+        $document->name_en = $names->en;
+        return view('document.edit', compact('document'));
+    }
+
+    public function update(Request $request, Cad2Document $cad2Document)
+    {
+        $request->validate([
+            'name' => 'required | min:3 | max:80',
+            'name_en' => 'max:80'
+        ]);
+        $name = [
+            "fr"=>$request->name,
+            "en"=>$request->name_en
+        ];
+        $cad2Document->update([
+            'name' => json_encode($name)
+        ]);
+        return redirect()->route('profile', Auth::user()->id)->withSuccess(trans('lang.dialog-update-success'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */

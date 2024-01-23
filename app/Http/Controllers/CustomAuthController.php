@@ -54,20 +54,13 @@ class CustomAuthController extends Controller
         return redirect(route('profile', $user->id));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Cad2User $cad2User)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Cad2User $cad2User)
     {
-        //
+        
     }
 
     /**

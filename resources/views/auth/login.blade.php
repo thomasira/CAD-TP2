@@ -28,7 +28,7 @@
                         </label>
                         <button class="btn">@lang('lang.btn-login')</button>
                         <p>@lang('lang.word-or')</p>
-                        <a href="{{ route('auth.create')}}" class="btn">@lang('lang.btn-register')</a>
+                        <a href="{{ route('student.create')}}" class="btn">@lang('lang.btn-register')</a>
                     </div>
                 </div>
             </form>

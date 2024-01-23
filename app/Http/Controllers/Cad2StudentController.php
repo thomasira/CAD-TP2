@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cad2Student;
-use App\Models\Cad2City;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Cad2Blogpost;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Http\Resources\Cad2BlogpostResource;
 use App\Http\Resources\Cad2DocumentResource;
-use App\Models\Cad2Document;
+use App\Models\Cad2Student;
+use App\Models\Cad2City;
+use App\Models\Cad2User;
 
 class Cad2StudentController extends Controller
 {
@@ -27,7 +27,8 @@ class Cad2StudentController extends Controller
      */
     public function create()
     {
-        //
+        $cities = Cad2City::all();
+        return view('student.create', compact('cities'));
     }
 
     /**
@@ -35,7 +36,27 @@ class Cad2StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'min:3 | max:45',
+            'email' => 'required | email | unique:cad2_users',
+            'password' => 'min:6 | max:20 | confirmed',
+            'address' => 'required | min:6 | max: 100',
+            'city_id' => 'required | exists:cad2_cities,id',
+            'd_o_b' => 'max:12 | date'
+        ]);
+
+        $user = new Cad2User;
+        $user->fill($request->all());
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        $student = new Cad2Student;
+        $student->fill($request->all());
+        $student->user_id = $user->id;
+        $student->save();
+
+        Auth::login($user);
+        return redirect(route('profile', $user->id));
     }
 
     /**
@@ -53,7 +74,8 @@ class Cad2StudentController extends Controller
     public function edit(Cad2Student $cad2Student)
     {
         $cities = Cad2City::all();
-        return view('student.edit', compact('cities'));
+        $student = $cad2Student;
+        return view('student.edit', compact('student', 'cities'));
     }
 
     public function profile(Cad2Student $cad2Student)
@@ -69,7 +91,32 @@ class Cad2StudentController extends Controller
      */
     public function update(Request $request, Cad2Student $cad2Student)
     {
-        //
+        $request->validate([
+            'name' => 'min:3 | max:45',
+            'city_id' => 'required | exists:cad2_cities,id',
+            'd_o_b' => 'max:12 | date'
+        ]);
+
+        if($request->email != $cad2Student->user->email) {
+            $request->validate([
+                'email' => 'required | email | unique:cad2_users'
+            ]);
+        }
+
+        /* $user = new Cad2User; */
+        $cad2Student->user->update([
+            'email' => $request->email
+        ]);
+
+        $cad2Student->update([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'd_o_b' => $request->d_o_b,
+            'city_id' => $request->city_id
+        ]);
+/*         $student->fill($request->all());
+        $student->save(); */
+        return redirect(route('profile', Auth::user()->id));
     }
 
     /**
@@ -77,6 +124,8 @@ class Cad2StudentController extends Controller
      */
     public function destroy(Cad2Student $cad2Student)
     {
-        //
+        $cad2Student->user->delete();
+        /* $cad2Student->delete(); */
+        return redirect()->route('login')->withSuccess(trans('lang.dialog-delete-user-success'));
     }
 }

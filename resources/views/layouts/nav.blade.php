@@ -1,7 +1,7 @@
 @php 
 $locale = session()->get('locale') ? session()->get('locale') : 'fr';
 $user = Auth::user() ? Auth::user() : false;
-if($user) $profile = $user->student->name;
+if($user) $profile = str_split($user->student->name, 4)[0];
 else $profile = 'FRM';
 @endphp
 <nav class="nav">

@@ -1,59 +1,71 @@
 @extends('layouts.layout')
 @section('title', 'Modifier')
 @section('content')
-<main class="formulaire">
-    <section>
-        <h2>Formulaire de modification d'un étudiant</h2>
-        <p>Ce formulaire permet la modification d'un étudiant dans le système informatique du Forum. Ceci entrainera l'enregistrement des données requises à tout jamais. Veuillez obtenir toutes les autorisations nécessaires avant de procéder.</p>
-    </section>
-    <section>
-        <header>
-            <h3>Formulaire c45b</h3>
-            <div>
-                <p>ID{{ $etudiant->id }}</p>
-                <p>{{ $createdAt }}</p>
-            </div>
-        </header>
-        <form method="post">
-        @method('put')
-        @csrf
-            <label>Nom
-                <input type="text" name="nom" value="{{ $etudiant->nom }}">
-                @if ($errors->has('nom'))
-                    <span class="error">{{ $errors->first('nom') }}</span>
-                @endif
-            </label>
-            <label>Date de naissance
-                <input type="text" name="date_naissance" placeholder="1993-12-23" value="{{ $etudiant->date_naissance }}">
-                @if ($errors->has('date_naissance'))
-                    <span class="error">{{ $errors->first('date_naissance') }}</span>
-                @endif
-            </label>
-            <label>Email
-                <input type="text" name="email" value="{{ $etudiant->email }}">
-                @if ($errors->has('email'))
-                    <span class="error">{{ $errors->first('email') }}</span>
-                @endif
-            </label>
-            <label>Téléphone
-                <input type="text" name="phone" value="{{ $etudiant->phone }}">
-                @if ($errors->has('phone'))
-                    <span class="error">{{ $errors->first('phone') }}</span>
-                @endif
-            </label>
-            <label>Adresse
-                <input type="text" name="adresse" value="{{ $etudiant->adresse }}">
-            </label>
-            <label>Ville
-                <select name="ville_id">
-                @foreach($villes as $ville)
-                    <option value="{{ $ville->id }}" 
-                    {{ $etudiant->ville_id == $ville->id ? 'selected' : '' }}>{{ $ville->ville }}</option>
-                @endforeach
-                </select>
-            </label>
-            <button class="btn">Sauvegarder</button>
-        </form>
-    </section>
+<main>
+    <header class="banner">
+        <h1>modifier info</h1>
+    </header>
+    <div>
+        <section>
+            <form method="post" class="formulaire">
+                @csrf
+                @method('put')
+                <header>
+                    <h3>Formulaire c45b</h3>
+                    <div>
+                        <p>ID{{ $student->id }}</p>
+                        <p>{{ $student->createdAt }}</p>
+                    </div>
+                </header>
+                <div>
+                    <div>
+                        <label>@lang('lang.form-user-name') *
+                            <input type="text" name="name" value="{{ $student->name }}">
+                            @if ($errors->has('name'))
+                                <span class="error">{{ $errors->first('name') }}</span>
+                            @endif
+                        </label>
+                        <label>@lang('lang.form-user-phone')
+                            <input type="text" name="phone" value="{{ $student->phone }}">
+                            @if ($errors->has('phone'))
+                                <span class="error">{{ $errors->first('phone') }}</span>
+                            @endif
+                        </label>
+                        <label>@lang('lang.form-user-address') *
+                            <input type="text" name="address"  value="{{ $student->address }}">
+                            @if ($errors->has('address'))
+                                <span class="error">{{ $errors->first('address') }}</span>
+                            @endif
+                        </label>
+                        <div>
+                            <label>@lang('lang.form-user-city') *
+                                <select name="city_id">
+                                @foreach ($cities as $city)
+                                    <option value="{{ $city->id }}" {{ $student->city_id == $city->id ? 'selected' : '' }}> {{ $city->city }}</option>
+                                @endforeach
+                                </select>
+                            </label>
+                            
+                        </div>
+                    </div>
+                    <div>
+                        <label>@lang('lang.form-user-email') *
+                            <input type="text" name="email" value="{{ $student->user->email }}">
+                            @if ($errors->has('email'))
+                                <span class="error">{{ $errors->first('email') }}</span>
+                            @endif
+                        </label>
+                        <label>@lang('lang.form-user-d_o_b')
+                                <input type="date" name="d_o_b" value="{{ $student->d_o_b }}">
+                                @if ($errors->has('d_o_b'))
+                                    <span class="">{{ $errors->first('d_o_b') }}</span>
+                                @endif
+                        </label>
+                    </div>
+                </div>
+                <button class="btn">@lang('lang.btn-save')</button>
+            </form>
+        </section>
+    </div>
 </main>
 @endsection

@@ -53,10 +53,10 @@
                 </table>
                 <div>
                     <a href="{{ route('student.edit', $cad2Student->user_id) }}" class="btn">Modifier</a>
-                    <form method="post">
+                    <form method="post" action="{{ route('student.delete', $cad2Student->user_id) }}">
                         @method('delete')
                         @csrf
-                        <button class="btn danger">Supprimer</button>
+                        <button class="btn danger">Supprimer le compte</button>
                     </form>
                 </div>
             </section>
@@ -68,6 +68,7 @@
                         <span>{{ $document['name'] }}</span>
                         <div>
                             <a href="{{ route('document.download', $document['id']) }}"><img src="../assets/icons/download.svg" alt="download link" title="download file"></a>
+                            <a href="{{ route('document.edit', $document['id']) }}"><img src="../assets/icons/edit.svg" alt="edit link" title="edit file name"></a>
                             <form method="post" action="{{ route('document.delete', $document['id']) }}">
                                 @method('delete')
                                 @csrf
