@@ -3,7 +3,7 @@
 @section('content')
 <main class="profile-page">
     <header>
-        <h1>Bonjour {{ $cad2Student->name }}</h1>
+        <h1>@lang('lang.word-welcome') {{ $cad2Student->name }}</h1>
         <p>ID{{ $cad2Student->user_id }} | @lang('lang.word-student')</p>
     </header>
     <div>

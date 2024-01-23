@@ -13,8 +13,7 @@ return [
 
     // login
     'text_logout' =>'logout',
-    'text_user-list' => 'user list',
-    
+    'text_user-list' => 'user list',  
     'text_add-title' => 'Click on an article to read it',
     'text_add-button' => 'Add',
 
@@ -112,6 +111,7 @@ return [
     'btn-delete-account' => 'delete account',
 
     //words
+    'word-welcome' => 'welcome',
     'word-or' => 'or',
     'word-by' => 'by',
     'word-student' => 'student',

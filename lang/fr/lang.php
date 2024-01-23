@@ -14,7 +14,6 @@ return [
     // login
     'text_logout' =>'déconnexion',
     'text_user-list' => 'liste d\'utilisateur',
-    
     'text_add-title' => 'Cliquez sur un article pour le consulter',
     'text_add-button' => 'Ajouter',
 
@@ -110,9 +109,9 @@ return [
     'btn-edit' => 'modifier',
     'btn-delete' => 'supprimer',
     'btn-delete-account' => 'supprimer le compte',
-    'text_blog_success' => 'wow! vous avez créé un article',
 
     //words
+    'word-welcome' => 'bienvenue',
     'word-or' => 'ou',
     'word-by' => 'par',
     'word-student' => 'Étudiant',
@@ -125,6 +124,9 @@ return [
     'dialog-upload-success' => 'Téléversement réussi',
     'dialog-save-success' => 'Enregistrement réussi',
     'dialog-edit-success' => 'Modification réussi',
+    'dialog-delete-success' => 'suppression réussi',
+    'dialog-account-success' => 'compte créé',
+    'dialog-delete-user-success' => 'compte supprimé',
 
     //welcome
     'forum-definition' => "n.m. Lieu où l'on discute les affaires publiques ; place où avaient lieu les assemblées du peuple, dans l'Antiquité romaine. Lieu virtuel permettant une réunion, un discussion ouverte à propos d'un sujet particulier ; service permettant l'échange et la discussion sur un thème donné. Service permettant discussions et échanges sur un thème donné : chaque utilisateur peut lire à tout moment les interventions de tous les autres et apporter sa propre contribution sous forme d'articles.Par extension, on désigne également par ce terme les systèmes de discussion télématiques, qui offrent généralement un service de téléchargement (connus en anglais sous le nom de,).(date de la publication : 01/09/2000 - éd. commission de l'informatique et des composants électroniques) *langue-francaise TV-5*"
