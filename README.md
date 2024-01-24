@@ -3,12 +3,17 @@
 
 ## Liens
 
->* Github: *https://github.com/thomasIRA/CAD-TP1*  
->* Webdev: *https://e2395387.webdev.cmaisonneuve.qc.ca/CAD-TP1/*
+>* Github: *https://github.com/thomasIRA/CAD-TP2*  
+>* Webdev: *https://e2395387.webdev.cmaisonneuve.qc.ca/CAD-TP2/*
+
+## Connexion
+
+> * courriel utilisateur: paul@paul.com
+> * mot de passe: 12345678
 
 ## Résumé du projet
 
-Forum_ est pour l'instant un simple cadre pour expérimenter les fonctionnalitées de Laravel. Blade est utilisé comme modélisateur de contenu et le module Eloquent de paire avec Request de Laravel aide à la gestion de la DB. À terme, Forum_ sera une plate-forme de discussion étudiante permettant l'échange de nouvelles et la création de groupes de discussions.
+Forum_ est pour l'instant un simple cadre pour expérimenter les fonctionnalités de Laravel. La version présente permet la création, suppression et modification d’un compte étudiant et d’un article. Il permet aussi le téléversment et téléchargement de documents.
 
 ## Références
 
